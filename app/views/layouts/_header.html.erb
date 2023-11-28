@@ -1,0 +1,34 @@
+<header>
+  <nav class="bg-white nav-header">
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="nav-container flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img class="h-14" src="<%=asset_path('airbnb-logo.png')%>" alt="Airbnb Logo">
+        </div>
+        <!-- Search bar -->
+        <div class="flex justify-center flex-grow">
+          <div class="flex justify-center">
+            <input type="text" placeholder="Search" class="px-4 py-2 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 hover:bg-gray-200">
+          </div>
+        </div>
+        <!-- User profile and mobile menu -->
+        <div class="flex items-center">
+          <!-- User profile picture -->
+          <div class="mx-4">
+            <img class="h-8 w-8 rounded-full" src="user-profile.jpg" alt="User Profile">
+          </div>
+          <!-- Burger menu for mobile -->
+          <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon for burger menu -->
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="md:hidden" id="mobile-menu">
+      <!-- Content for mobile menu -->
+    </div>
+  </nav>
+</header>
