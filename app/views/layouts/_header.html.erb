@@ -1,5 +1,5 @@
-<header>
-  <nav class="bg-white nav-header">
+<header class="nav-header" data-controller="header">
+  <nav class="bg-white">
     <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="nav-container flex items-center justify-between h-20">
         <!-- Logo -->
@@ -14,9 +14,33 @@
         </div>
         <!-- User profile and mobile menu -->
         <div class="flex items-center">
-          <!-- User profile picture -->
-          <div class="mx-4">
-            <img class="h-8 w-8 rounded-full" src="user-profile.jpg" alt="User Profile">
+          <div class="flex items-center relative">
+            <!-- User profile picture -->
+            <div class="mx-4 relative">
+              <button data-header-target="openUserMenu" id="profileDropdown" class="focus:outline-none">
+                <img class="h-8 w-8 rounded-full" src="user-profile.jpg" alt="User Profile">
+              </button>
+              <!-- Dropdown content -->
+              <div 
+                id="dropdownContent"
+                class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-10"
+                data-transition-enter="transition ease-out duration-100"
+                data-transition-enter-start="transform opacity-0 scale-95"
+                data-transition-enter-end="transform opacity-100 scale-100"
+                data-transition-leave="transition ease-in duration-75"
+                data-transition-leave-start="transform opacity-100 scale-100"
+                data-transition-leave-end="transform opacity-0 scale-95"
+              >
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Your Profile</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">More...</a>
+              </div>
+            </div>
+            <!-- Burger menu for mobile -->
+            <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon for burger menu -->
+            </button>
           </div>
           <!-- Burger menu for mobile -->
           <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
