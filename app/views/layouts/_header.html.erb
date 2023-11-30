@@ -32,8 +32,13 @@
                 data-transition-leave-end="transform opacity-0 scale-95"
               >
                 <div class="py-1">
-                  <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sign up</a>
-                  <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Log in</a>
+                  <% if user_signed_in? %>
+                    <%= link_to 'Log out', destroy_user_session_path, class: "block px-4 py-2 text-gray-800 hover:bg-gray-100", data: { "turbo-method": :"delete"} %>
+                  <% else %>
+                    <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sign up</a>
+                    <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Log in</a>
+                  <% end %>
+                  
                 </div>
                 <div class="py-1">
                   <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Host your home</a>
