@@ -21,8 +21,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_192457) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.string "addres_1"
-    t.string "addres_2"
+    t.string "address_1"
+    t.string "address_2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

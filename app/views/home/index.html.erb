@@ -1,1 +1,40 @@
-<p>Hello world</p>
+<div class="container my-24 mx-auto md:px-6">
+  <!-- Section: Design Block -->
+  <section class="mb-32">
+    <div class="grid gap-y-8 grid-cols-1 sm:gap-x-6 sm:grid-cols-4 lg:grid-cols-5 xl:gap-x-8">
+      <% @properties.each do |property| %>
+        <div class="mb-6 lg:mb-0">
+          <div
+            class="relative block rounded-lg bg-white">
+            <div class="flex">
+              <div
+                class="relative overflow-hidden rounded-lg bg-cover bg-no-repeat"
+                data-te-ripple-init data-te-ripple-color="light">
+                <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/031.webp" class="h-full w-full object-cover" />
+                <a href="#!">
+                  <div
+                    class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="pt-2 text-sm">
+              <h5 class="mb-1"><%= "#{property.city}, #{property.country}" %></h5>
+              <p class="mb-0.5 text-neutral-500">
+                2,884 kilometers away
+              </p>
+              <p class="mb-1 text-neutral-500">
+                Dec 1 - 6
+              </p>
+              <p class="mb-4 pb-2">
+                $325 night
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</div>
+<!-- Container for demo purpose -->

@@ -7,8 +7,8 @@ class CreateProperties < ActiveRecord::Migration[7.1]
       t.string :city
       t.string :state
       t.string :country
-      t.string :addres_1
-      t.string :addres_2
+      t.string :address_1
+      t.string :address_2
 
       t.timestamps
     end
