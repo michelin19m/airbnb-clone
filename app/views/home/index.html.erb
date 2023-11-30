@@ -1,7 +1,12 @@
 <div class="container my-24 mx-auto md:px-6">
   <!-- Section: Design Block -->
   <section class="mb-32">
-    <div class="grid gap-y-8 grid-cols-1 sm:gap-x-6 sm:grid-cols-4 lg:grid-cols-5 xl:gap-x-8">
+    <div
+      data-controller="geolocation"
+      class="grid gap-y-8 grid-cols-1 sm:gap-x-6 sm:grid-cols-4 lg:grid-cols-5 xl:gap-x-8"
+      data-latitude=""
+      data-longitude=""
+    >
       <% @properties.each do |property| %>
         <div class="mb-6 lg:mb-0">
           <div
@@ -18,10 +23,16 @@
                 </a>
               </div>
             </div>
-            <div class="pt-2 text-sm">
+            <div
+              class="pt-2 text-sm"
+              data-latitude="<%= property.latitude %>"
+              data-longitude="<%= property.longitude %>"
+              data-geolocation-target="property"
+            >
               <h5 class="mb-1"><%= "#{property.city}, #{property.country}" %></h5>
-              <p class="mb-0.5 text-neutral-500">
-                2,884 kilometers away
+              <p
+                data-distance-away=""
+                class="mb-0.5 text-neutral-500">
               </p>
               <p class="mb-1 text-neutral-500">
                 Dec 1 - 6
