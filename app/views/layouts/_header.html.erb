@@ -23,7 +23,7 @@
               <!-- Dropdown content -->
               <div 
                 id="dropdownContent"
-                class="hidden absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-10"
+                class="hidden absolute right-0 mt-2 w-60 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-8 divide-y divide-gray-100"
                 data-transition-enter="transition ease-out duration-100"
                 data-transition-enter-start="transform opacity-0 scale-95"
                 data-transition-enter-end="transform opacity-100 scale-100"
@@ -31,16 +31,18 @@
                 data-transition-leave-start="transform opacity-100 scale-100"
                 data-transition-leave-end="transform opacity-0 scale-95"
               >
-                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Your Profile</a>
-                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Settings</a>
-                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">More...</a>
+                <div class="py-1">
+                  <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sign up</a>
+                  <a data-header-target="userAuthLink" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Log in</a>
+                </div>
+                <div class="py-1">
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Host your home</a>
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Host an experience</a>
+                  <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Help Center</a>
+
+                </div>
               </div>
             </div>
-            <!-- Burger menu for mobile -->
-            <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <!-- Icon for burger menu -->
-            </button>
           </div>
           <!-- Burger menu for mobile -->
           <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -56,3 +58,5 @@
     </div>
   </nav>
 </header>
+
+<%= render 'shared/modal', modal_content: 'home/user_auth_form' %>

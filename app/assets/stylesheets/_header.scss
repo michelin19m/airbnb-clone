@@ -5,3 +5,17 @@
 .nav-container {
   min-height: 80px;
 }
+
+.invalid-inset-input-text-field {
+  border-color: rgb(244, 63, 94) !important;
+
+  &:focus
+
+  label {
+    color: rgb(244, 63, 94) !important;
+  }
+  input[type="email"], input[type="text"] {
+    color: rgb(244, 63, 94) !important;
+  }
+  color: rgb(244, 63, 94) !important;
+}

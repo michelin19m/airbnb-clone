@@ -1,0 +1,42 @@
+<div data-controller="users-by-email-auth">
+  <div class="items-center">
+    <p class="text-center text-md">Log in or sign up</p>
+  </div>
+  <hr class="my-3 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25" />
+  <!--Body-->
+  <p class="py-2 text-xl leading-6 text-gray-900">Welcome to Airbnb</p>
+  <!--Email input-->
+  <div class="relative mt-4">
+    
+    <input
+      data-users-by-email-auth-target="email"
+      type="email"
+      class="peer m-0 block h-[58px] w-full rounded-lg border border-solid border-gray-400 bg-transparent bg-clip-padding px-3 py-4 text-base font-normal leading-tight text-gray-400 transition duration-200 ease-linear placeholder:text-transparent focus:border-primary focus:pb-[0.625rem] focus:pt-[1.625rem] focus:text-neutral-700 focus:outline-none peer-focus:text-primary [&:not(:placeholder-shown)]:pb-[0.625rem] [&:not(:placeholder-shown)]:pt-[1.625rem] invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+      id="email"
+      placeholder="name@example.com" />
+    
+    <label
+      for="email"
+      class="pointer-events-none absolute left-0 top-0 origin-[0_0] border border-solid border-transparent px-3 py-4 text-gray-400 transition-[opacity,_transform] duration-200 ease-linear peer-focus:-translate-y-2 peer-focus:translate-x-[0.15rem] peer-focus:scale-[0.85] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-translate-y-2 peer-[:not(:placeholder-shown)]:translate-x-[0.15rem] peer-[:not(:placeholder-shown)]:scale-[0.85] motion-reduce:transition-none"
+    >Email address</label>
+    <span id="email-span" class="hidden text-sm text-red-600"> Please enter a valid email address. </span>
+  </div>
+  <div class="pt-2">
+    <button data-users-by-email-auth-target="submit" class="w-full text-white px-4 p-3 rounded-lg mr-2 bg-[#FF385C]">Continue</button>
+  </div>
+
+</div>
+<!--Title-->
+
+<div class="relative flex py-5 items-center">
+  <div class="flex-grow border-t border-gray-300"></div>
+  <span class="text-sm flex-shrink mx-4 text-gray-600">or</span>
+  <div class="flex-grow border-t border-1"></div>
+</div>
+<div class="pt-2">
+  <button class="w-full px-4 border border-black text-bold p-3 rounded-lg hover:bg-gray-100 mr-2">Continue with Facebook</button>
+</div>
+
+<div class="pt-3">
+  <button class="w-full px-4 bg-gray-200 p-3 rounded-lg hover:bg-gray-300 mr-2">Action</button>
+</div>
