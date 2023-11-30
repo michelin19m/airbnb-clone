@@ -22,6 +22,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem "rspec-rails", "~> 6.1.0"
   gem "pry-rails"
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do

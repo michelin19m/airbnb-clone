@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 505a667f63f217d10dc19170dc9bef07ff7ab765
+  branch: main
+  specs:
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -236,6 +244,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -281,6 +291,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   factory_bot_rails
+  faker!
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -290,6 +301,7 @@ DEPENDENCIES
   redis (>= 4.0.1)
   rspec-rails (~> 6.1.0)
   sassc-rails
+  shoulda-matchers (~> 5.0)
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
