@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
 
   geocoded_by :address
+  monetize :price_cents, allow_nil: true
 
   validates :name, presence: true
   validates :headline, presence: true
