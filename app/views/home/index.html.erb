@@ -4,8 +4,8 @@
     <div
       data-controller="geolocation"
       class="grid gap-y-8 grid-cols-1 sm:gap-x-6 sm:grid-cols-4 lg:grid-cols-5 xl:gap-x-8"
-      data-latitude=""
-      data-longitude=""
+      data-latitude="<%= current_user&.profile&.latitude %>"
+      data-longitude="<%= current_user&.profile&.longitude %>"
     >
       <% @properties.each do |property| %>
         <div class="mb-6 lg:mb-0">
