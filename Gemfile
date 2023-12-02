@@ -6,6 +6,7 @@ gem "bootsnap", require: false
 gem "devise", "~> 4.9"
 gem 'geocoder'
 gem "jbuilder"
+gem "image_processing", ">= 1.2"
 gem "importmap-rails"
 gem 'money-rails', '~> 1.12'
 gem "pg", "~> 1.1"

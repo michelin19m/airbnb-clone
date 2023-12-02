@@ -3,6 +3,8 @@ class Property < ApplicationRecord
   geocoded_by :address
   monetize :price_cents, allow_nil: true
 
+  has_many_attached :images, dependent: :destroy
+
   validates :name, presence: true
   validates :headline, presence: true
   validates :description, presence: true
@@ -16,5 +18,9 @@ class Property < ApplicationRecord
   def address
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
+  end
+
+  def default_image
+    images.first
   end
 end
