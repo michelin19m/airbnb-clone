@@ -4,6 +4,7 @@ class Property < ApplicationRecord
   monetize :price_cents, allow_nil: true
 
   has_many_attached :images, dependent: :destroy
+  has_many :reviews, as: :reviewable
 
   validates :name, presence: true
   validates :headline, presence: true
@@ -22,5 +23,9 @@ class Property < ApplicationRecord
 
   def default_image
     images.first
+  end
+
+  def average_rating
+    reviews.average(:rating)
   end
 end
