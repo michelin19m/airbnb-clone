@@ -9,7 +9,7 @@ module Api
 
       respond_to do |format|
         format.json do
-          render json: favorite.to_json, status: :created
+          render json: serialize_favorite(favorite), status: :created
         end
       end
     end
@@ -20,12 +20,16 @@ module Api
 
       respond_to do |format|
         format.json do
-          render json: favorite.to_json, status: :no_content
+          render json: serialize_favorite(favorite), status: :no_content
         end
       end
     end
 
     private
+
+    def serialize_favorite(favorite)
+      FavoriteSerializer.new(favorite).serializable_hash[:data].to_json
+    end
 
     def favorite_params
       params.permit(:user_id, :property_id)
