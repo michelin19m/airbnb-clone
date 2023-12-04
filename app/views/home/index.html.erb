@@ -57,7 +57,7 @@
                 class="mb-0.5 text-neutral-500">
               </p>
               <p class="mb-1 text-neutral-500">
-                Dec 1 - 6
+                <%= property.available_dates.first %> - <%= property.available_dates.last %>
               </p>
               <p class="mb-4 pb-2">
                 <%= humanized_money_with_symbol(property.price) %> per night
