@@ -1,7 +1,7 @@
 <header class="nav-header" data-controller="header">
-  <nav class="bg-white">
+  <nav class="bg-white shadow-sm">
     <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="nav-container flex items-center justify-between h-20">
+      <div class="nav-container flex items-center justify-between h-24">
         <!-- Logo -->
         <div class="flex-shrink-0">
           <img class="h-14" src="<%=asset_path('airbnb-logo.png')%>" alt="Airbnb Logo">
@@ -12,18 +12,21 @@
             <input type="text" placeholder="Search" class="px-4 py-2 w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 hover:bg-gray-200">
           </div>
         </div>
-        <!-- User profile and mobile menu -->
-        <div class="flex items-center">
-          <div class="flex items-center relative">
+        <!-- User profile and dropdown menu -->
+        <div class="flex items-center shadow rounded-full border-[1px] border-gray-200 hover:shadow-xl">
+          <div class="flex items-center relative my-2.5 mx-1">
             <!-- User profile picture -->
-            <div class="mx-4 relative">
-              <button data-header-target="openUserMenu" id="profileDropdown" class="focus:outline-none">
-                <img class="h-8 w-8 rounded-full" src="user-profile.jpg" alt="User Profile">
+            <div data-header-target="openUserMenu" class="mx-2 relative flex cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-6 my-auto ml-2 mr-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <button id="profileDropdown" class="focus:outline-none">
+                <img class="h-10 w-10 rounded-full object-center object-cover" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Elon_Musk_%283017880307%29.jpg" alt="User Profile">
               </button>
               <!-- Dropdown content -->
               <div 
                 id="dropdownContent"
-                class="hidden absolute right-0 mt-2 w-60 bg-white border border-gray-200 rounded-lg shadow-xl py-2 z-10 divide-y divide-gray-100"
+                class="hidden absolute right-0 mt-14 w-60 bg-white border border-gray-100 rounded-2xl shadow-xl py-2 z-10 divide-y divide-gray-100"
                 style="z-index: 9"
                 data-transition-enter="transition ease-out duration-100"
                 data-transition-enter-start="transform opacity-0 scale-95"
@@ -45,22 +48,12 @@
                   <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Host your home</a>
                   <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Host an experience</a>
                   <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Help Center</a>
-
                 </div>
               </div>
             </div>
           </div>
-          <!-- Burger menu for mobile -->
-          <button type="button" class="block md:hidden bg-gray-800 p-2 rounded-md text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <!-- Icon for burger menu -->
-          </button>
         </div>
       </div>
-    </div>
-    <!-- Mobile menu -->
-    <div class="md:hidden" id="mobile-menu">
-      <!-- Content for mobile menu -->
     </div>
   </nav>
 </header>

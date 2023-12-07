@@ -5,7 +5,9 @@ import { csrfToken } from '../utils/csrf';
 export default class extends Controller {
   HEADERS = { 'Content-Type': 'application/json', 'Accept': 'application/json', 'X-CSRF-Token': csrfToken() }
 
-  favorite() {
+
+  favorite(e) {
+    e.preventDefault()
     if(this.element.dataset.userLoggedIn === 'false') {
       return document.querySelector('[data-header-target="userAuthLink"').click()
     }
@@ -34,7 +36,7 @@ export default class extends Controller {
     }).then((response) => {
       this.element.dataset.favorited = 'true';
       this.element.dataset.favoriteId = response.data.id;
-      this.element.setAttribute('fill', '#FF5A5F');
+      this.element.setAttribute('fill', this.element.dataset.favoritedColor);
     });
   }
 
@@ -42,7 +44,7 @@ export default class extends Controller {
     axios.delete(this.getUnfavoritePath(this.element.dataset.favoriteId), {
       headers: this.HEADERS
     }).then((response) => {
-      this.element.setAttribute('fill', 'rgba(0, 0, 0, 0.5)');
+      this.element.setAttribute('fill', this.element.dataset.unfavoritedColor);
       this.element.dataset.favorited = 'false'
       this.element.dataset.favoriteId = '';
     })
