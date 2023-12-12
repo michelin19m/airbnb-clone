@@ -5,4 +5,9 @@ export default class extends Controller {
     e.preventDefault();
     document.getElementById('property-description-trigger').click();
   }
+
+  readReviews(e) {
+    e.preventDefault();
+    document.getElementById('reviews-modal-trigger').click();
+  }
 }

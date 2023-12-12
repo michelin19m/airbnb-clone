@@ -13,7 +13,7 @@
   <div class="hidden" id="<%= modal_trigger_id %>"  data-action="click->modal#showModal"></div>
   <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
   
-  <div id='modal-<%= modal_trigger_id %>-panel' class="modal-container bg-white w-full lg:max-w-lg mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
+  <div id='modal-<%= modal_trigger_id %>-panel' class="modal-container bg-white w-full lg:max-w-<%= max_width %> mx-auto rounded-lg shadow-lg z-50 overflow-y-auto">
     <!-- Add margin if you want to see some of the overlay behind the modal-->
     <div class="modal-content py-4 text-left px-6">
       <%= render modal_content %>
