@@ -21,7 +21,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
               <button id="profileDropdown" class="focus:outline-none">
-                <img class="h-10 w-10 rounded-full object-center object-cover" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Elon_Musk_%283017880307%29.jpg" alt="User Profile">
+                <% avatar = user_signed_in? && current_user.profile.avatar.attached? ? current_user.profile.avatar : asset_path('default_avatar.png') %>
+                <%= image_tag avatar, class: "h-10 w-10 rounded-full object-center object-cover"%>
               </button>
               <!-- Dropdown content -->
               <div 
