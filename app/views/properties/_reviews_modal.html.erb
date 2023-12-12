@@ -4,40 +4,18 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" fill="currentColor" class="w-10 h-10">
         <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
       </svg>
-      <p class="text-3xl font-semibold inline-flex items-center ml-1">4.83</p>
+      <p class="text-3xl font-semibold inline-flex items-center ml-1"><%= @property.average_rating.round(2) %></p>
     </div>
     <dl class="">
       <dt class="text-sm font-medium mb-2">Overall rating</dt>
-      <dd class="flex items-center">
-        <span class="text-xs font-medium">5</span>
-        <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
-          <div class="h-1 rounded bg-gray-700" style="width: 88%"></div>
-        </div>
-      </dd>
-      <dd class="flex items-center">
-        <span class="text-xs font-medium">4</span>
-        <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
-          <div class="h-1 rounded bg-gray-700" style="width: 88%"></div>
-        </div>
-      </dd>
-      <dd class="flex items-center">
-        <span class="text-xs font-medium">3</span>
-        <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
-          <div class="h-1 rounded bg-gray-700" style="width: 88%"></div>
-        </div>
-      </dd>
-      <dd class="flex items-center">
-        <span class="text-xs font-medium">2</span>
-        <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
-          <div class="h-1 rounded bg-gray-700" style="width: 88%"></div>
-        </div>
-      </dd>
-      <dd class="flex items-center">
-        <span class="text-xs font-medium">1</span>
-        <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
-          <div class="h-1 rounded bg-gray-700" style="width: 88%"></div>
-        </div>
-      </dd>
+      <% 5.downto(1) do |n| %>
+        <dd class="flex items-center">
+          <span class="text-xs font-medium w-2.5"><%= n %></span>
+          <div class="w-full bg-gray-300 rounded h-1 me-2 ml-2">
+            <div class="h-1 rounded bg-gray-700" style="width: <%= property_rating_percentage(property: @property, rating: n) %>%"></div>
+          </div>
+        </dd>
+      <% end%>
     </dl>
     <div class="py-4 border-b border-gray-300 flex justify-between">
       <div class="flex items-center">
@@ -93,34 +71,31 @@
   </div>
   <div class="col-span-4">
     <div class="items-center pt-1 mb-5">
-      <p class="text-2xl font-medium">376 reviews</p>
+      <p class="text-2xl font-medium"><%= @property.reviews_count %> reviews</p>
     </div>
     <article>
-        <div class="flex items-center mb-4">
-            <img class="w-10 h-10 me-4 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Elon_Musk_%283017880307%29.jpg" alt="">
-            <div class="font-medium">
-                <p>Jese Leos <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500">United Kingdom</time></p>
-            </div>
+      <% @property.reviews.includes(:user).each do |review| %>
+        <div class="flex items-center mb-2">
+          <%= image_tag review.user.profile.avatar, class: "w-12 h-12 me-4 rounded-full object-center object-cover" %>
+          <div class="font-medium">
+            <p><%= review.user.full_name %> <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500">United Kingdom</time></p>
+          </div>
         </div>
         <div class="flex items-center mb-1 rtl:space-x-reverse">
-          <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-2 h-2 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <h3 class="ms-2 text-sm font-semibold text-gray-900">August 2023</h3>
+          <% review.rating.times do %>
+            <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <svg class="w-2.5 h-2.5 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+          <% end %>
+          <h3 class="ms-2 text-sm font-medium text-gray-900">August 2023</h3>
         </div>
-        <p class="mb-2 text-gray-500">This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time, popped on an identical strap from another Invicta and went in the shower with it to test the waterproofing.... No problems.</p>
+        <p class="mb-2 text-gray-500"><%= review.body %></p>
+      <% end %>
     </article>
   </div>
 </div>
