@@ -2,6 +2,10 @@
 
 class Property < ApplicationRecord
 
+  CLEANING_FEE = 5_000.freeze
+  CLEANING_FEE_MONEY = Money.new(CLEANING_FEE)
+  SERVICE_FEE_PERCENTAGE = 0.08.freeze
+
   geocoded_by :address
   monetize :price_cents, allow_nil: true
 
@@ -22,6 +26,7 @@ class Property < ApplicationRecord
 
   after_validation :geocode, if: ->(obj) { obj.latitude.blank? and obj.longitude.blank? }
 
+  # TODO: when there will be real data (not FAKER)
   def address
     # [address_1, address_2, city, state, country].compact.join(', ')
     [state, country].compact.join(', ')
@@ -37,11 +42,22 @@ class Property < ApplicationRecord
     favorited_users.include?(user)
   end
 
-  def available_dates
-    next_reservation = reservations.future_available_dates.first
+  # TODO: make this work properly
+  def available_dates(nights=3)
+    # next_reservation = reservations.future_booked_dates(nights).first
     date_format = "%b %e"
-    return Date.tomorrow.strftime(date_format)..Date.today.end_of_year.strftime(date_format) if next_reservation.nil?
+    # return Date.tomorrow.strftime(date_format)..(Date.tomorrow + nights.days).strftime(date_format) if next_reservation.nil? || (next_reservation.start_date - nights.days) < Date.tomorrow
 
-    Date.tomorrow.strftime(date_format)..next_reservation.reservation_date.strftime(date_format)
+    # Date.tomorrow.strftime(date_format)..next_reservation.reservation_date.strftime(date_format)
+    return Date.tomorrow.strftime(date_format)..(Date.tomorrow + nights.days).strftime(date_format)
+  end
+
+  def available?(start_date, end_date)
+    conflicting_reservations = reservations.where(
+      '(? <= end_date) AND (? >= start_date)',
+      start_date, end_date
+    )
+
+    conflicting_reservations.empty?
   end
 end
