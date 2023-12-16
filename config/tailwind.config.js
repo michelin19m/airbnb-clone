@@ -1,6 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  safelist: [
+    'lg:max-w-lg',
+    'lg:max-w-5xl'
+  ],
   content: [
     './public/*.html',
     './app/helpers/**/*.rb',
