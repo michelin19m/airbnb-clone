@@ -148,6 +148,7 @@
         data-controller="reservation-component"
         data-price-per-night="<%= humanized_money @property.price %>"
         data-airbnb-fee="<%= humanized_money Property::SERVICE_FEE_PERCENTAGE %>"
+        data-turbo="false"
         data-cleaning-fee="<%= humanized_money Property::CLEANING_FEE_MONEY %>"
         class="shadow-xl rounded-xl border border-gray-200 p-6 sticky top-5"
       >
@@ -155,7 +156,7 @@
           <span class="text-xl font-semibold"><%= humanized_money_with_symbol @property.price %></span>
           night
         </div>
-        <form>
+        <%= form_for(@property, url: checkouts_path(@property), html: { method: :post }) do |f| %>
           <div class="border border-gray-600 rounded-lg my-4">
             <div date-rangepicker class="flex">
               <div class="relative w-1/2 border-0 border-gray-600 outline-none">
@@ -190,8 +191,8 @@
               </div>
             </div>
           </div>
-          <button type="submit" class="w-full bg-[#FF5A5F] text-white px-4 py-3 rounded-md hover:bg-gray-400">Reserve</button>
-        </form>
+          <%= f.submit 'Reserve', class: "w-full bg-[#FF5A5F] text-white px-4 py-3 rounded-md cursor-pointer" %>
+        <% end %>
         <div class="text-center py-4">
           You won't be charged yet
         </div>

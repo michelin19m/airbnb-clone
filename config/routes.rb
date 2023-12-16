@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
+  resource :checkouts, only: %i[] do
+    post :create, path: "/:property_id"
+    get :success
+  end
+
   namespace :api do
     resources :users, only: :show
     get "/users_by_email/" => "users_by_emails#show", as: :users_by_email, format: :json
